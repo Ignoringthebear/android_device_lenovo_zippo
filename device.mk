@@ -22,7 +22,6 @@ TARGET_SCREEN_WIDTH := 1080
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -31,10 +30,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-
-# XiaomiParts
-PRODUCT_PACKAGES += \
-    LenovoParts
+# ParanoidDoze
+PRODUCT_PACKAGES += ParanoidDoze
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -65,22 +62,21 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 # Fingerprint
-PRODUCT_COPY_FILES += \
-    vendor/revengeos/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
-
 PRODUCT_PACKAGES += \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.lenovo
+    vendor.pa.biometrics.fingerprint.inscreen@1.0-service.lenovo
+
+PRODUCT_COPY_FILES += \
+    vendor/pa/config/permissions/vendor.pa.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.pa.biometrics.fingerprint.inscreen.xml
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
+
 
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -90,10 +86,6 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
-# Livedisplay
-PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -122,11 +114,7 @@ PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    qti_telephony_utils.xml
 
 # TextClassifier
 PRODUCT_PACKAGES += \

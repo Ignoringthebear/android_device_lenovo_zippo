@@ -13,7 +13,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.enableNCSService=TRUE \
     persist.vendor.camera.enableTOFInterface=TRUE \
     sys.camera.packagename.zui=1 \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.zui.camera
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
