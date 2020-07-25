@@ -29,7 +29,7 @@
 #define HBM_ENABLE_PATH "/sys/class/backlight/panel0-hbm/brightness"
 
 namespace vendor {
-namespace pa {
+namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -148,5 +148,5 @@ Return<int32_t> FingerprintInscreen::getSize() {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace pa
+}  // namespace lineage
 }  // namespace vendor
